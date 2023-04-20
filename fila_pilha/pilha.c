@@ -6,7 +6,7 @@
 
 // tipo da pilha
 typedef struct pilha {
-    TAB *filhos;
+    int info;
     struct pilha *prox;
 } TP;
 
@@ -14,9 +14,9 @@ TP *tp_cria(){
     return NULL;
 }
 
-TP *tp_insere_inicio(TP *pilha, TAB *no){
+TP *tp_insere_inicio(TP *pilha, int x){
     TP *novo = (TP*)malloc(sizeof(TP));
-    novo->filhos = no;
+    novo->info = x;
     novo->prox = pilha;
     return novo;
 }
@@ -40,7 +40,7 @@ void tp_libera(TP *pilha){
 void tp_imprime(TP *pilha){
     TP *aux = pilha;
     while(aux != NULL){
-        printf("%d -> ", aux->filhos);
+        printf("%d -> ", aux->info);
         aux = aux->prox;
     }
     printf("NULL \n");

@@ -6,7 +6,7 @@
 /*insere no final e remove a primeira ocorrencia*/
 
 typedef struct fila {
-    TAB *filhos;
+    int info;
     struct fila *prox;
 } TF;
 
@@ -14,15 +14,15 @@ TF *tf_cria(){
     return NULL;
 }
 
-TF *tf_insere_inicio(TF *fila, TAB *no){
+TF *tf_insere_inicio(TF *fila, int x){
     TF *novo = (TF*)malloc(sizeof(TF));
-    novo->filhos = no;
+    novo->info = x;
     novo->prox = fila;
     return novo;
 }
 
-TF *tf_insere_final(TF *fila, TAB *no){
-    TF *novo = tf_insere_inicio(NULL, no); /*cria o nó*/
+TF *tf_insere_final(TF *fila, int x){
+    TF *novo = tf_insere_inicio(NULL, x); /*cria o nó*/
     if(fila == NULL){
         return novo;
     }
@@ -44,7 +44,7 @@ TF *tf_retira(TF *fila){
 void tf_imprime(TF *fila){
     TF *aux = fila;
     while(aux != NULL){
-        printf("%d -> ", aux->filhos);
+        printf("%d -> ", aux->info);
         aux = aux->prox;
     }
     printf("NULL \n");
