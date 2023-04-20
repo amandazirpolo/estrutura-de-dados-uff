@@ -5,7 +5,7 @@ O protótipo da função de inversão é o seguinte: void inverte (TLSE* l).*/
 #include <stdlib.h>
 #include "func_li.c"
 
-void inverte_lista(TLSE *lista){
+/*void inverte_lista(TLSE *lista){
     TLSE *lista_aux = lista;
 
     lista = tlse_inicializa();
@@ -16,6 +16,23 @@ void inverte_lista(TLSE *lista){
     // tlse_imprime(lista);
     // tlse_libera(lista_aux);
 }
+*/
+
+void inverte_lista(TLSE *lista){
+    TLSE *la = NULL, *p = lista;
+    while(p){
+        la = tlse_insere_inicio(la, p->info);
+        p = p->prox;
+    }
+    p = la;
+    while(p){
+        lista->info = p->info;
+        p = p->prox;
+        lista = lista->prox;
+    }
+    tlse_libera(la);
+}
+
 
 int main(){
     TLSE *lista = tlse_inicializa();
