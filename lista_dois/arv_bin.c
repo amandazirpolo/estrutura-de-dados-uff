@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct arvbin{
-  int info;
+  int info, cor;
   struct arvbin *esq, *dir;
 } TAB;
 
