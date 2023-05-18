@@ -47,7 +47,6 @@ TLSE *ancestrais_amanda(TABB *a, int elem){
     return ancestrais_aux(lista_ancestrais, a, elem);
 }
 
-
 int main(){
     TABB *a = TABB_inicializa();
     TLSE *l_ancestrais = tlse_inicializa();

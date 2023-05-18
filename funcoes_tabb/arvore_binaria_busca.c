@@ -136,21 +136,21 @@ void TABB_libera(TABB *a){
   }
 }
 
-int main(){
-    TABB *a = TABB_inicializa();
+// int main(){
+//     TABB *a = TABB_inicializa();
 
-    a = TABB_cria(2, (TABB_cria(1, NULL, NULL)), TABB_cria(4, TABB_cria(3, NULL, NULL), NULL));
+//     a = TABB_cria(2, (TABB_cria(1, NULL, NULL)), TABB_cria(4, TABB_cria(3, NULL, NULL), NULL));
 
-    TABB_imp_sim(a);
-    printf("\n");
-    TABB_imp_pos(a);
-    printf("\n");
-    TABB_imp_pre(a);
-    printf("\n \n \n");
-    TABB_imp_ident(a);
-    printf("\n");
+//     TABB_imp_sim(a);
+//     printf("\n");
+//     TABB_imp_pos(a);
+//     printf("\n");
+//     TABB_imp_pre(a);
+//     printf("\n \n \n");
+//     TABB_imp_ident(a);
+//     printf("\n");
 
-    TABB_libera(a);
+//     TABB_libera(a);
 
-    return 0;
-}
+//     return 0;
+// }
