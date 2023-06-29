@@ -318,3 +318,4 @@ TARVB* TARVB_Retira(TARVB* arv, int k, int t){
   if(!arv || !TARVB_Busca(arv, k)) return arv;
   return remover(arv, k, t);
 }
+ 
