@@ -83,5 +83,9 @@ int main(void){
   }while((resp != 'N') && (resp != 'n'));
   TH_imprime(nome_hash, nome_dados, m);
 
+  f(nome_hash, nome_dados, m, 12345, 5.6);
+
+  TH_imprime(nome_dados);
+
   return 0;
 }

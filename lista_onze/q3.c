@@ -1,21 +1,13 @@
-/* Q2) sucessor de um elemento na árvore. Se o elemento for o maior da estrutura, sua
-função deve retornar INT_MAX: int suc (TARVB *a, int elem); */
+/* Q3) maior elemento da árvore: TARVB* maior(TARVB *a); */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include "TARVB.c"
 
-int suc(TARVB *a, int elem){
-    if(!a) return INT_MAX;
-    TARVB *aux = TARVB_Busca(a, elem);
-    if(!aux) return INT_MAX; // se o elemento não estiver na árvore, retorna int_max
-    int i;
-    if(aux->nchaves == 1) return INT_MAX; // se tiver uma chave só, retorna int_max
-    if(aux->chave[aux->nchaves - 1] == elem) return INT_MAX; // se aux->chave na ultima pos for igual ao elemento, retorna int_max
-    for(i = 0; i < a->nchaves; i++){
-        if(aux->chave[i] == elem && i < aux->nchaves) return aux->chave[i+1];
-    }
+TARVB *maior(TARVB *a){
+    if(!a) return a;
+    if(a->folha) return a;
+    return maior(a->filho[a->nchaves]);
 }
 
 int main(){
@@ -48,10 +40,11 @@ int main(){
         printf("\n\n");
     }
 
-    int sucessor = suc(arvore, 6);
-    printf("o sucessor do elemento escolhido eh %d \n", sucessor);
+    TARVB *aux = maior(arvore);
+    TARVB_Imprime(aux);
 
     TARVB_Libera(arvore);
+    TARVB_Libera(aux);
 
     return 0;
 }

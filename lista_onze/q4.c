@@ -1,13 +1,13 @@
-/* Q3) maior elemento da árvore: TARVB* maior(TARVB *a);*/
+/* Q4) menor elemento da árvore: TARVB* menor(TARVB *a); */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "TARVB.c"
 
-TARVB *maior(TARVB *a){
-    if(!a) return NULL;
-    int i;
-        
+TARVB *menor(TARVB *a){
+    if(!a) return a;
+    if(a->folha) return a;
+    return menor(a->filho[0]);
 }
 
 int main(){
@@ -40,10 +40,11 @@ int main(){
         printf("\n\n");
     }
 
-    int sucessor = suc(arvore, 9);
-    printf("o sucessor do elemento escolhido eh %d \n", sucessor);
+    TARVB *aux = maior(arvore);
+    TARVB_Imprime(aux);
 
     TARVB_Libera(arvore);
+    TARVB_Libera(aux);
 
     return 0;
 }
